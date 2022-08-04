@@ -1,10 +1,14 @@
 const express = require('express');
+const loginRouter = require('./rotas/loginRouter');
 
 // ...
 
 const app = express();
 
 app.use(express.json());
+
+// configuração de rotas
+app.use('/login', loginRouter);
 
 // ...
 
