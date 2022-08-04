@@ -11,15 +11,15 @@ const midfunction = {
     console.log(email, password);
     try {
       const resultUser = await db.User.findOne({ where: { email, password } });
-      console.log('to aqui', resultUser);
+      // console.log('to aqui', resultUser);
       if (!resultUser) return response.status(400).json({ message: 'Invalid fields' });
   
-      return response.status(200).json(resultUser);
+      next();
     } catch (e) {
       console.log(e.message);
       response.status(500).json({ message: 'Algo deu errado' }); // erro padrão: 'erro 500'
     }
-    next();
+    // validityBody: async (require, response, next) =>
 } };
 
 module.exports = midfunction;

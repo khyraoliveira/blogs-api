@@ -1,5 +1,6 @@
 const express = require('express');
 const loginRouter = require('./rotas/loginRouter');
+// require('express-async-errors');
 
 // ...
 
