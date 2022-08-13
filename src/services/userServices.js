@@ -18,6 +18,10 @@ const userServices = {
   const token = jwt.tokenCreate(user);
   return token;
   },
+  findAllUser: async () => {
+    const allUser = await model.User.findAll({ attributes: { exclude: ['password'] } });
+    return allUser;
+  },
 };
 
 module.exports = userServices;

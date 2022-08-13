@@ -7,7 +7,8 @@ const midfunction = require('../middlewares/validationUser');
 const userRouter = Router();
 
 // ROTA DO USER
-userRouter.use(midfunction.validateUser);
-userRouter.post('/', userControllers.user);
+// userRouter.use(midfunction.validateUser);
+userRouter.post('/', midfunction.validateUser, userControllers.user);
+userRouter.get('/', userControllers.findAll);
 
 module.exports = userRouter;
