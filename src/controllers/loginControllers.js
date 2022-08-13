@@ -9,7 +9,7 @@ const loginControllers = {
     if (token.error) {
       return response.status(400).json({ message: 'Invalid fields' });
     }
-    console.log('ME ACHE', token);
+    // console.log('ME ACHE', token);
     return response.status(200).json({ token });
   },
 };

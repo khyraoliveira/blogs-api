@@ -1,5 +1,6 @@
-const jwtsecret = require('jsonwebtoken');
+// const jwtsecret = require('jsonwebtoken');
 const model = require('../database/models');
+const jwt = require('../middlewares/jwt');
 // requisição do model na pastinha database
 require('dotenv').config();
 
@@ -11,7 +12,7 @@ const loginServices = {
       attributes: { exclude: ['displayName', 'image'] },
       where: { email },
     }));
-    console.log('ESTOU AQUI', user);
+    // console.log('ESTOU AQUI', user);
     if (!user || user.password !== password) {
       const erros = {
         error: {
@@ -23,8 +24,8 @@ const loginServices = {
     }
     // Course - seção gabaritos:
     const { password: removedPassword, ...userWithoutPassword } = user.dataValues;
-    const token = jwtsecret.sign({ userWithoutPassword }, process.env.JWT_SECRET);
-    console.log('EU TO AQUI', token);
+    const token = jwt.tokenCreate(userWithoutPassword);
+    // console.log('EU TO AQUI', token);
     return token;
   },
 };

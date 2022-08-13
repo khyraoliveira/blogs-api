@@ -19,7 +19,6 @@ const midfunction = {
       console.log(e.message);
       response.status(500).json({ message: 'Algo deu errado' }); // erro padrão: 'erro 500'
     }
-    // validityBody: async (require, response, next) =>
 } };
 
 module.exports = midfunction;

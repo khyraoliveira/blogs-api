@@ -1,7 +1,7 @@
 // rota do express
 const { Router } = require('express');
 const loginControllers = require('../controllers/loginControllers');
-const midfunction = require('../middlewares/validation');
+const midfunction = require('../middlewares/validationLogin');
 
 const loginRouter = Router();
 
