@@ -8,5 +8,6 @@ const postRouter = Router();
 // ROTA DO POST
 postRouter.get('/:id', postControllers.findId);
 postRouter.get('/', postControllers.listAll);
+postRouter.put('/:id', postControllers.changePost);
 
 module.exports = postRouter;
