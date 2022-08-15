@@ -22,6 +22,11 @@ const userServices = {
     const allUser = await model.User.findAll({ attributes: { exclude: ['password'] } });
     return allUser;
   },
+  findId: async (id) => {
+    const achaId = await model.User.findByPk(id, { attributes: { exclude: ['password'] } }); // pk: primary key.
+    if (!achaId) return { error: { code: 404, message: { message: 'User does not exist' } } };
+    return achaId;
+  },
 };
 
 module.exports = userServices;

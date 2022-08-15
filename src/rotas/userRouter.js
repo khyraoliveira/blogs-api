@@ -10,5 +10,6 @@ const userRouter = Router();
 // userRouter.use(midfunction.validateUser);
 userRouter.post('/', midfunction.validateUser, userControllers.user);
 userRouter.get('/', userControllers.findAll);
+userRouter.get('/:id', userControllers.findId);
 
 module.exports = userRouter;
