@@ -1,4 +1,5 @@
 const express = require('express');
+const categoryRouter = require('./rotas/categoryRouter');
 const loginRouter = require('./rotas/loginRouter');
 const userRouter = require('./rotas/userRouter');
 // require('express-async-errors');
@@ -12,6 +13,7 @@ app.use(express.json());
 // configuração de rotas
 app.use('/login', loginRouter);
 app.use('/user', userRouter);
+app.use('/categories', categoryRouter);
 
 // ...
 
