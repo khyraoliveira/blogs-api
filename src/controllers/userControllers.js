@@ -22,7 +22,7 @@ const userControllers = {
     if (validacao.error) {
       return response.status(validacao.error.code).json(validacao.error.message);
     }
-    console.log(validacao);
+    // console.log(validacao);
     const allUsers = await userServices.findAllUser();
 
     return response.status(200).json(allUsers);
