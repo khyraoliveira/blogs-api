@@ -16,6 +16,19 @@ const postServices = {
     });
     return allPost;
   },
+  findId: async (id) => {
+    const achaId = await model.BlogPost.findByPk(id, 
+      {
+        include: [{
+          model: model.User, as: 'user', attributes: { exclude: ['password'] },
+        },
+        {
+          model: model.Category, as: 'categories', through: { attributes: [] },
+        }],
+      }); // pk: primary key.
+    if (!achaId) return { error: { code: 404, message: { message: 'Post does not exist' } } };
+    return achaId;
+  },
 };
 
 module.exports = postServices;

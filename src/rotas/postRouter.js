@@ -6,6 +6,7 @@ const postControllers = require('../controllers/postControllers');
 const postRouter = Router();
 
 // ROTA DO POST
+postRouter.get('/:id', postControllers.findId);
 postRouter.get('/', postControllers.listAll);
 
 module.exports = postRouter;
