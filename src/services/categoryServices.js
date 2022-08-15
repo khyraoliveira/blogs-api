@@ -10,6 +10,10 @@ const categoryServices = {
     // create: função para criar uma nova categoria, onde vem só o 'name', conforme
     return createCategory;
   },
+  findAllCategory: async () => {
+    const allCategory = await model.Category.findAll();
+    return allCategory;
+  },
 };
 
 module.exports = categoryServices;

@@ -5,7 +5,6 @@ const categoryControllers = {
   newCategory: async (require, response) => {
     const { authorization } = require.headers;
     const validacao = tokenValidate(authorization);
-    console.log('VALIDAÇÃO:', validacao);
     if (validacao.error) {
       return response.status(validacao.error.code).json(validacao.error.message);
     }
@@ -15,6 +14,15 @@ const categoryControllers = {
     }
     const createCategory = await categoryServices.newCategory(name);
     return response.status(201).json(createCategory);
+  },
+  allCategory: async (require, response) => {
+    const { authorization } = require.headers;
+    const validacao = tokenValidate(authorization);
+    if (validacao.error) {
+      return response.status(validacao.error.code).json(validacao.error.message);
+    }
+    const showAllCategory = await categoryServices.findAllCategory();
+    return response.status(200).json(showAllCategory);
   },
 };
 
