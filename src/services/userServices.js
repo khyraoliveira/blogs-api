@@ -1,3 +1,4 @@
+const db = require('../database/models');
 const model = require('../database/models');
 // requisição do model na pastinha database/model
 const jwt = require('../middlewares/jwt');
@@ -26,6 +27,9 @@ const userServices = {
     const achaId = await model.User.findByPk(id, { attributes: { exclude: ['password'] } }); // pk: primary key.
     if (!achaId) return { error: { code: 404, message: { message: 'User does not exist' } } };
     return achaId;
+  },
+  deleteUser: async (id) => {
+    await db.User.destroy({ where: { id } });
   },
 };
 

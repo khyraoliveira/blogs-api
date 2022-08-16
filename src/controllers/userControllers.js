@@ -40,6 +40,15 @@ const userControllers = {
     }
     return response.status(200).json(findPeloId);
   },
+  delete: async (require, response) => {
+    const { authorization } = require.headers;
+    const validacao = tokenValidate(authorization);
+    if (validacao.error) {
+      return response.status(validacao.error.code).json(validacao.error.message);
+    }
+    await userServices.deleteUser(validacao.data.id);
+    return response.status(204).end();
+  },
 };
 
 module.exports = userControllers;
