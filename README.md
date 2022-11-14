@@ -1,7 +1,7 @@
 # Projeto Blogs API! :computer:
 Projeto realizado no módulo de Back-end durante o curso de Desenvolvimento Web.
 
-O **Blogs API** desenvolvi uma **API** e um **banco de dados** para a produção de conteúdo para um blog!
+No **Blogs API** desenvolvi uma **API** e um **banco de dados** para a produção de conteúdo para um blog!
 
 Desenvolvendo uma aplicação em **Node.js** usando o pacote **sequelize** para fazer um **CRUD** de posts.
 
